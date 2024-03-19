@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="isa.pu2crud.FXPrincipalController"
-            prefHeight="400.0" prefWidth="600.0" >
+<BorderPane prefHeight="500.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="isa.pu2crud.FXPrincipalController">
+    <stylesheets>
+        <URL value="@PrincipalStyle.css" />
+    </stylesheets>
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <Menu mnemonicParsing="false" text="File">
+                <MenuItem mnemonicParsing="false" onAction="#guardarDatos" text="Save" />
+                <MenuItem mnemonicParsing="false" onAction="#abrirDatos" text="Open" />
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+                <MenuItem mnemonicParsing="false" onAction="#borrarDatos" text="Delete" />
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <Pane prefHeight="379.0" prefWidth="438.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+            <Pane layoutX="130.0" layoutY="165.0" prefHeight="30.0" prefWidth="200.0" />
+            <Pane layoutX="260.0" layoutY="188.0" prefHeight="242.0" prefWidth="200.0" style="-fx-background-color: #FFFFF;">
+                <ImageView fx:id="imagView" fitHeight="208.0" fitWidth="202.0" layoutX="-2.0" layoutY="32.0"
+                           pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: grey;">
+                    <Image url="@pedido.png"/>
+                </ImageView>
+                <Button id="ADD" fx:id="ImagButton" layoutY="-1.0" mnemonicParsing="false" onAction="#agregarImagen" prefHeight="32.0" prefWidth="200.0" text="Agregar imagen" textFill="#989191" />
+            </Pane>
+            <TextField fx:id="TotalTextField" layoutX="25.0" layoutY="135.0" prefHeight="32.0" prefWidth="200.0" promptText="Total">
+                <font>
+                    <Font size="13.0" />
+                </font>
+            </TextField>
+            <Spinner fx:id="CantSpinner" initialValue="1" layoutX="122.0" layoutY="86.0" max="30" min="1" prefHeight="25.0" prefWidth="78.0" />
 
-</AnchorPane>
+            <Label id="labelCant" fx:id="labelCant" layoutX="35.0" layoutY="86.0" prefHeight="32.0" prefWidth="79.0" text="Cantidad:" textFill="#b3a9a9">
+                <font>
+                    <Font size="13.0" />
+                </font>
+            </Label>
+
+            <TextArea fx:id="NoteTextArea" layoutX="25.0" layoutY="190.0" prefHeight="240.0" prefWidth="200.0" promptText="Notas y Tallas" />
+            <DatePicker fx:id="FechaDatePicker" layoutX="260.0" layoutY="27.0" prefHeight="32.0" prefWidth="200.0" promptText="Fecha" />
+            <TextField fx:id="ClientTextField" layoutX="25.0" layoutY="27.0" prefHeight="32.0" prefWidth="200.0" promptText="Client´s name">
+                <font>
+                    <Font size="13.0" />
+                </font>
+            </TextField>
+            <Pane layoutX="312.0" layoutY="80.0" prefHeight="91.0" prefWidth="89.0" style="-fx-background-color: #FADED7;">
+                <children>
+                    <ImageView fitHeight="106.0" fitWidth="110.0" layoutX="-9.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@p.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </Pane>
+            <TabPane fx:id="MesTablePane" layoutX="497.0" layoutY="18.0" prefHeight="422.0" prefWidth="685.0" tabClosingPolicy="UNAVAILABLE">
+            </TabPane>
+
+            <Separator layoutX="465.0" orientation="VERTICAL" prefHeight="459.0" prefWidth="29.0" />
+        </Pane>
+    </center>
+</BorderPane>
